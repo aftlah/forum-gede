@@ -4,10 +4,10 @@ import React from "react";
 const AboutSection = () => {
   return (
     <>
-      <h1 className="mt-16 mb-6 text-3xl font-bold text-center text-primary">
+      <h1 id="about" className="mb-10 text-3xl font-bold text-center mt-36 text-primary">
         ABOUT
       </h1>
-      <div className="grid content-center w-full grid-cols-2 px-5 py-14 justify-items-start bg-primary">
+      <div className="grid content-center w-full grid-cols-1 px-5 py-8 md:grid-cols-2 md:py-14 justify-items-center md:justify-items-start bg-primary">
         <ul className="grid content-center grid-cols-3 my-auto md:w-full lg:w-1/2 lg:ml-28 md:justify-self-start justify-items-start gap-7 h-72 ">
           <li>
             <Image
@@ -83,7 +83,7 @@ const AboutSection = () => {
           </li>
         </ul>
 
-        <div className="grid content-center w-full m-0 text-white lg:-ml-20 gap-y-7">
+        <div className="grid content-center w-full m-0 font-semibold text-center text-white md:text-start lg:-ml-20 gap-y-7">
           <p className="text-wrap">
             Karya ilmiah ini menyajikan solusi digital inovatif berupa website
             pencari rekan keanggotaan untuk mahasiswa. Platform ini dirancang
