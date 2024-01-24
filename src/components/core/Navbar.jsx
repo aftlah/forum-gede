@@ -66,7 +66,7 @@ const Navbar = () => {
 					{/* After Login */}
 					<button
 						type="button"
-						className="flex text-sm rounded-full cursor-pointer md:me-0"
+						className={`flex text-sm  rounded-full cursor-pointer md:me-0 `}
 						id="user-menu-button"
 						aria-expanded="false"
 						data-dropdown-toggle="user-dropdown"
@@ -77,7 +77,7 @@ const Navbar = () => {
 						<Image
 							width={40}
 							height={40}
-							className={`w-10 h-10 border-[1.5px] border-white rounded-full ${onProfileMenuClick === true ? "bg-red-500" : ""}`}
+							className={`w-10 h-10  rounded-full border-2  ${showProfileMenu ? "border-white" : "border-transparent"}`}
 							src="https://www.pngkey.com/png/full/115-1150420_avatar-png-pic-male-avatar-icon-png.png"
 							alt="user photo"
 						/>
@@ -167,7 +167,7 @@ const Navbar = () => {
 					} md:order-1 mt-4 w-full md:flex md:m-auto md:w-auto items-center md:justify-between p-5 md:p-2 z-50`}
 					id="navbar-user"
 				>
-					<ul className="flex flex-col p-4 font-medium bg-gray-400 border border-gray-800 rounded-lg gap-y-3 md:h-auto md:p-0 md:bg-transparent md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:items-start md:justify-start md:gap-y-0 ">
+					<ul className="flex flex-col p-4 font-medium bg-gray-400 border border-gray-800 rounded-lg gap-y-3 md:h-auto md:p-0 md:bg-transparent md:space-x-12 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:items-start md:justify-start md:gap-y-0 ">
 						<li>
 							<Link
 								href={"/"}
@@ -180,7 +180,7 @@ const Navbar = () => {
 						<li>
 							<Link
 								href={"#about"}
-								className={`block px-3 py-2 text-lg font-semibold text-white rounded hover:underline md:hover:bg-transparent md:p-0 ${path === "#about" ? "underline underline-offset-[5px] " : ""} `}
+								className={`block px-3 py-2 text-lg font-semibold text-white rounded hover:underline md:hover:bg-transparent underline-offset-[5px]  md:p-0 ${path === "#about" ? "underline underline-offset-[5px] " : ""} `}
 							>
 								About
 							</Link>
@@ -203,7 +203,6 @@ const Navbar = () => {
 						</li>
 					</ul>
 				</div>
-
 			</div>
 		</nav>
 	);

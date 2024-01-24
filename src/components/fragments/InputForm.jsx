@@ -1,4 +1,4 @@
-const InputForm = ({ type, placeholder, id, name,onChange,errors }) => {
+const InputForm = ({ type, placeholder, id, name, onChange, errors, value,onBlur }) => {
   return (
     <>
       <input
@@ -9,6 +9,8 @@ const InputForm = ({ type, placeholder, id, name,onChange,errors }) => {
         name={name}
         autoComplete="off"
         onChange={onChange}
+        value={value}
+        onBlur={onBlur}
       />
       <span className="h-6 text-red-500 ">{errors}</span>
     </>

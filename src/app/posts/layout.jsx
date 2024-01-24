@@ -7,9 +7,12 @@ export const metadata = {
   
   export default function Layout({ children }) {
     return (
-      <div>
+      <>
         <Navbar/>
+        <div className="max-w-[1298px] mx-auto">
         {children}
-      </div>
+        </div>
+          
+      </>
     );
   }
