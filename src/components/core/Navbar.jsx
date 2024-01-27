@@ -179,7 +179,7 @@ const Navbar = () => {
 						</li>
 						<li>
 							<Link
-								href={"#about"}
+								href={"/#about"}
 								className={`block px-3 py-2 text-lg font-semibold text-white rounded hover:underline md:hover:bg-transparent underline-offset-[5px]  md:p-0 ${path === "#about" ? "underline underline-offset-[5px] " : ""} `}
 							>
 								About
