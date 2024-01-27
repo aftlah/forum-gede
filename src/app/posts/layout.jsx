@@ -9,7 +9,7 @@ export const metadata = {
     return (
       <>
         <Navbar/>
-        <div className="max-w-[1298px] mx-auto">
+        <div className="px-4 mx-auto bg-blue-700 max-w-screen-2xl">
         {children}
         </div>
           
