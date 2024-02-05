@@ -23,11 +23,11 @@ const Navbar = () => {
 	};
 	return (
 		<nav id="up" className="bg-primary border-gray-200 md:px-8 max-h-[4.5rem] ">
-			<div className="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
+			<div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto md:p-4">
 				{/* <!-- Logo --> */}
 				<Link
 					href={"/"}
-					className="flex items-center space-x-3 text-white rtl:space-x-reverse"
+					className="flex items-center p-4 space-x-3 text-white md:p-0 rtl:space-x-reverse"
 				>
 					{/* <Image
 						width={40}
@@ -42,7 +42,7 @@ const Navbar = () => {
 				</Link>
 
 				{/* <!-- Dropdown Profile menu--> */}
-				<div className="flex items-center space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse md:-mt-1 ">
+				<div className="flex items-center p-4 space-x-3 md:p-0 md:order-2 md:space-x-0 rtl:space-x-reverse md:-mt-1 ">
 					
 					{/* Before Login*/}
 					{/* <button
@@ -84,9 +84,7 @@ const Navbar = () => {
 					</button>
 
 					<div
-						className={`z-50 ${
-							showProfileMenu ? "absolute right-3" : "hidden"
-						} mt-80   my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow`}
+						className={`z-50 absolute transition duration-150 ease-in-out  right-3 ${showProfileMenu ? " opacity-100" : "opacity-0"} mt-80   my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow`}
 						id="user-dropdown"
 					>
 						<div className="px-4 py-3">
@@ -162,12 +160,12 @@ const Navbar = () => {
 
 				{/* <!-- Mobile Navbar menu --> */}
 				<div
-					className={` ${
-						showNavbar ? "block" : "hidden"
-					} md:order-1 mt-4 w-full md:flex md:m-auto md:w-auto items-center md:justify-between p-5 md:p-2 z-50`}
+					className={`transition duration-150 ease-in-out  md:order-1 mt-1 ${
+						showNavbar ? "opacity-100" : "opacity-0"
+					}  w-full md:flex md:m-auto md:w-auto items-center md:justify-between  md:p-2 z-50`}
 					id="navbar-user"
 				>
-					<ul className="flex flex-col p-4 font-medium bg-gray-400 border border-gray-800 rounded-lg gap-y-3 md:h-auto md:p-0 md:bg-transparent md:space-x-12 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:items-start md:justify-start md:gap-y-0 ">
+					<ul className="flex flex-col p-4 ml-auto font-medium bg-gray-400 border border-gray-800 rounded-lg w-52 md:w-full gap-y-3 md:h-auto md:p-0 md:bg-transparent md:space-x-12 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:items-start md:justify-start md:gap-y-0 ">
 						<li>
 							<Link
 								href={"/"}

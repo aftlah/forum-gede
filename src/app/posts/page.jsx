@@ -26,8 +26,6 @@ const PostsPage = () => {
                     </li>
                 </ul>
             </nav>
-
-
             <div className='grid lg:grid-cols-4 md:grid-cols-3 gap-x-1 lg:gap-x-[6px] '>
                 <div className="w-full lg:max-w-[17rem]   md:max-w-[265px] p-5 md:p-4 lg:h-[19.3rem] xl:h-[18.5rem]  lg:p-5 bg-white rounded-[10px] mt-10   drop-shadow-xl">
                     <div className='flex flex-col gap-y-3'>
@@ -407,10 +405,6 @@ const PostsPage = () => {
               
                
             </div>  
-
-
-
-
         </>
     )
 }
