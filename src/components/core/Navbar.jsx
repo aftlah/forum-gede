@@ -5,13 +5,11 @@ import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 
 
-const Navbar = () => {
+const Navbar = ({}) => {
 	const path = usePathname();
 	const [showNavbar, setShowNavbar] = useState(false);
 	const [showProfileMenu, setShowProfileMenu] = useState(false);
-	const [isActive, setIsActive] = useState(false)
 
-	
 	const onNavbarMobileClick = () => {
 		setShowNavbar(!showNavbar);
 		setShowProfileMenu(false);
@@ -21,8 +19,11 @@ const Navbar = () => {
 		setShowProfileMenu(!showProfileMenu);
 		setShowNavbar(false);
 	};
+
+
+
 	return (
-		<nav id="up" className="bg-primary border-gray-200 md:px-8 max-h-[4.5rem] ">
+		<nav id="up"  className="bg-primary border-gray-200 md:px-8 max-h-[4.5rem] ">
 			<div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto md:p-4">
 				{/* <!-- Logo --> */}
 				<Link
@@ -43,7 +44,7 @@ const Navbar = () => {
 
 				{/* <!-- Dropdown Profile menu--> */}
 				<div className="flex items-center p-4 space-x-3 md:p-0 md:order-2 md:space-x-0 rtl:space-x-reverse md:-mt-1 ">
-					
+
 					{/* Before Login*/}
 					{/* <button
 						type="button"
@@ -66,7 +67,9 @@ const Navbar = () => {
 					{/* After Login */}
 					<button
 						type="button"
-						className={`flex text-sm  rounded-full cursor-pointer md:me-0 `}
+						// onFocus={() => setShowProfileMenu(true)}
+						onBlur={() => setShowProfileMenu(false)}
+						className={`flex text-sm rounded-full cursor-pointer md:me-0 `}
 						id="user-menu-button"
 						aria-expanded="false"
 						data-dropdown-toggle="user-dropdown"
@@ -82,21 +85,20 @@ const Navbar = () => {
 							alt="user photo"
 						/>
 					</button>
-
-					<div
-						className={`z-50 absolute transition duration-150 ease-in-out  right-3 ${showProfileMenu ? " opacity-100" : "opacity-0"} mt-80   my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow`}
-						id="user-dropdown"
-					>
-						<div className="px-4 py-3">
-							<span className="block text-sm text-gray-900 ">
-								Altaf Fattah Amanullah
-							</span>
-							<span className="block text-sm text-gray-500 truncate ">
-								name@gmail.com
-							</span>
-						</div>
-						<ul className="py-2 text-white" aria-labelledby="user-menu-button">
-							{/* <li>
+						<div
+							className={`z-50 absolute transition duration-150 ease-in-out  right-3 ${showProfileMenu ? " opacity-100" : "opacity-0"} mt-80   my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow`}
+							id="user-dropdown"
+						>
+							<div className="px-4 py-3">
+								<span className="block text-sm text-gray-900 ">
+									Altaf Fattah Amanullah
+								</span>
+								<span className="block text-sm text-gray-500 truncate ">
+									name@gmail.com
+								</span>
+							</div>
+							<ul className="py-2 text-white" aria-labelledby="user-menu-button">
+								{/* <li>
 								<Link
 									href={"/"}
 									className="block px-4 py-2 text-sm text-gray-700 hover:underline underline-offset-[5px]"
@@ -104,36 +106,37 @@ const Navbar = () => {
 									Dashboard
 								</Link>
 							</li> */}
-							<li>
-								<Link
-									href={"/dashboard/profile"}
-									className="block px-4 py-2 text-sm text-gray-700 hover:underline underline-offset-[5px]"
-								>
-									Profile
-								</Link>
-							</li>
-							<li>
-								<Link
-									href={"/dashboard/post"}
-									className="block px-4 py-2 text-sm text-gray-700 hover:underline underline-offset-[5px]"
-								>
-									Postingan
-								</Link>
-							</li>
-							<li>
-								<Link
-									href={"/dashboard/setting"}
-									className="block px-4 py-2 text-sm text-gray-700 hover:underline underline-offset-[5px]"
-								>
-									Sign out
-								</Link>
-							</li>
-						</ul>
-					</div>
+								<li>
+									<Link
+										href={"/dashboard/profile"}
+										className="block px-4 py-2 text-sm text-gray-700 hover:underline underline-offset-[5px]"
+									>
+										Profile
+									</Link>
+								</li>
+								<li>
+									<Link
+										href={"/dashboard/post"}
+										className="block px-4 py-2 text-sm text-gray-700 hover:underline underline-offset-[5px]"
+									>
+										Postingan
+									</Link>
+								</li>
+								<li>
+									<Link
+										href={"/dashboard/setting"}
+										className="block px-4 py-2 text-sm text-gray-700 hover:underline underline-offset-[5px]"
+									>
+										Sign out
+									</Link>
+								</li>
+							</ul>
+						</div>
 
 					<button
 						data-collapse-toggle="navbar-user"
 						type="button"
+						onBlur={() => setShowNavbar(false)}
 						className="inline-flex items-center justify-center p-2 text-sm text-white rounded-lg cursor-pointer size-10 md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200 hover:ring-gray-200 "
 						aria-controls="navbar-user"
 						aria-expanded="false"
@@ -160,16 +163,15 @@ const Navbar = () => {
 
 				{/* <!-- Mobile Navbar menu --> */}
 				<div
-					className={`transition duration-150 ease-in-out  md:order-1 mt-1 ${
-						showNavbar ? "opacity-100" : "opacity-0"
-					}  w-full md:flex md:m-auto md:w-auto items-center md:justify-between  md:p-2 z-50`}
+					className={`h-screen md:h-auto  transition duration-150 ease-in-out  md:order-1 mt-1 ${showNavbar ? "opacity-100" : "opacity-0"
+						} md:opacity-100 w-full md:flex md:m-auto md:w-auto items-center md:justify-between  md:p-2 z-50`}
 					id="navbar-user"
 				>
 					<ul className="flex flex-col p-4 ml-auto font-medium bg-gray-400 border border-gray-800 rounded-lg w-52 md:w-full gap-y-3 md:h-auto md:p-0 md:bg-transparent md:space-x-12 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:items-start md:justify-start md:gap-y-0 ">
 						<li>
 							<Link
 								href={"/"}
-								className={`block px-3 py-2 text-lg font-semibold text-white  rounded bg-primary md:bg-transparent md:p-0 ${ path === "/" ? "underline underline-offset-[5px] " : ""} `}
+								className={`block px-3 py-2 text-lg font-semibold text-white  rounded bg-primary md:bg-transparent md:p-0 ${path === "/" ? "underline underline-offset-[5px] " : ""} `}
 								aria-current="page"
 							>
 								Home
